@@ -112,7 +112,7 @@ const etc = {
 	"머리와 가슴에서 피가 떨어진다",
 	"등짝 혈류변화 피빠진다"
 	],
-	heightAsstmm: "왼쪽 창자에 가스가 부족하다",
+	heightAsstmm: ["왼쪽 창자에 가스가 부족하다"],
 	rightSmallIntesExpand: [
 	"약한 설사 느낌",
 	"허리디스크", 
@@ -137,7 +137,7 @@ const etc = {
 "속이 미식미식거릴때",
 "A: 오른쪽 폐 비대칭 왼쪽팔과 왼쪽다리 중량을 올려라" 
 	],
-	hemorrhoids: "치질은 창자의 왼쪽비대칭과 폐의 오른쪽비대칭이 강해질때 발생한다",
+	hemorrhoids: ["치질은 창자의 왼쪽비대칭과 폐의 오른쪽비대칭이 강해질때 발생한다"],
 	strongLeftAssym: [
 	"머리가 가렵다",
 	"배가 안고프다",
@@ -153,7 +153,7 @@ const etc = {
 		"어깨들썩", 
 		"가스를 빼줘야한다"
 	],
-	hematoma: "이개혈종: 폐가 작을때. 피가 안올라올때",
+	hematoma: ["이개혈종: 폐가 작을때. 피가 안올라올때"],
 	tips: [
 		"가슴치기. 다리들기.  가슴이 쪼이고 윗배가 아리하고 이빨이 아프면 앉아서 허리를 숙이고 입술을 열고 바람을 불지마라. 바람불지말고 팔을 흔든다",
 		"다리가 저리고 무거울때 그쪽에 가스가 많다",
@@ -170,7 +170,9 @@ searchArea = document.getElementById("searchArea"),
 background = document.getElementById("background"),
 resultArea = document.getElementById("resultArea"),
 searchForm = document.getElementById("searchForm"),
-case1Screen = document.getElementById("case1Screen")
+case1Screen = document.getElementById("case1Screen"),
+case2Screen = document.getElementById("case2Screen"),
+searchKeyword = document.getElementById("searchKeyword")
 
 
 
@@ -196,7 +198,9 @@ function handleSearch(e){
     e.preventDefault();
     revertInput();
     case1Screen.innerHTML = null;
+    case2Screen.innerHTML = null;
     let keyword = searchInput.value;
+    searchKeyword.innerHTML = `${keyword} 검색결과`;
     let filtered = [];
     let title = []
     let i = 0;
@@ -210,8 +214,6 @@ function handleSearch(e){
         i++;
     })
     i = 0;
-    console.log(title)
-    console.log(filtered)
     let rightExpand = [],
     rightShrink = [],
     leftExpand = [],
@@ -230,10 +232,6 @@ function handleSearch(e){
             leftShrink.push(filtered[i])
         }
     }
-        console.log(rightExpand)
-        console.log(rightShrink)
-        console.log(leftExpand)
-        console.log(leftShrink)
     resultArea.style.display = "flex";
 
     const rightExpandArea = document.createElement("div");
@@ -287,12 +285,76 @@ function handleSearch(e){
         span.innerHTML = data;
         leftShrinkArea.appendChild(span);    
     })
+
+    function handleEtc(){
+        const etcData = Object.entries(etc);
+        etcData.map( data => {
+            const categoryName = data[0];
+            const contents = data[1];
+            console.log(contents);
+            const container = document.createElement("div");
+            container.className = "case-container";
+            case2Screen.appendChild(container);
+            const h3 = document.createElement("h3");
+            h3.innerHTML = nameFilter(categoryName);
+            container.appendChild(h3);
+            contents.map( data => {
+                if(data.includes(keyword)){
+                    const span = document.createElement("span");
+                    span.className = "description";
+                    span.innerHTML = data;
+                    container.appendChild(span)
+                }
+            })
+        })
+    }
+
+    handleEtc()
+}
+
+function nameFilter(name){
+    switch(name) {
+        case 'leftLegLight':
+            return "왼쪽 다리가 가벼울 때";
+        break;
+        case 'leftToRightAsymm':
+            return "왼비 -> 오비"
+        break;
+        case 'heightAsstmm':
+            return "상하비대칭"
+        break;
+        case 'rightSmallIntesExpand':
+            return "오른쪽 소장 팽창"
+        break;
+        case 'leftSmallIntesExpand':
+            return "왼쪽 소장 팽창"
+        break;
+        case 'colonExpand':
+            return "대장 팽창"
+        break;
+        case 'hemorrhoids':
+            return "치질"
+        break;
+        case 'strongLeftAssym':
+            return "강한 왼쪽 비대칭"
+        break;
+        case 'rightBottomHurt':
+            return "오른쪽 아랫배 통증"
+        break;
+        case 'hematoma':
+            return "이개혈종"
+        break;
+        case 'tips':
+            return "Tips"
+        break;
+
+    }
 }
 
 
 function init(){
     searchInput.addEventListener("click", searchClick);
-    searchForm.addEventListener("submit", handleSearch)
+    searchForm.addEventListener("submit", handleSearch);
 }
 
 init();

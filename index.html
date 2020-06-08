@@ -11,15 +11,22 @@
         <header class="search-area" id="searchArea">
             <h1 class="title">몸상태 찾기🔍 By.Jiwon</h1>
             <form action="" class="search-form" id="searchForm">
-                <input type="text" class="search-input" id="searchInput" required=true autocomplete="off" placeholder="아픈 곳을 입력하세요">
+                <input type="text" class="search-input" id="searchInput" autocomplete="off" placeholder="아픈 곳을 입력하세요">
                 <input type="submit" class="search-btn" id="searchBtn" value="검색">
             </form>
+            <h5 class="tip">＊아무것도 입력하지 않고 검색하면 모든 데이터가 나옵니다.</h5>
         </header>
         <article class="result-area" id="resultArea">
-            <h1 class="result-title">검색결과</h1>
+            <h1 class="result-title" id="searchKeyword">검색결과</h1>
             <section class="case1">
                 <h2 class="case1-title">창자 비대칭이 맞는 경우</h2>
                 <div class="case1-Screen" id="case1Screen"></div>
+            </section>
+            <section class="case2">
+                <h2 class="case2-title">기타</h2>
+                <div class="case2-screen" id="case2Screen">
+
+                </div>
             </section>
         </article>
     </section>
