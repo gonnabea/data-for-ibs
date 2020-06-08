@@ -178,6 +178,7 @@ function searchClick(){
     searchBtn.style.animation = "moveBtn 0.4s forwards";
     searchInput.style.animation = "focusSearch 0.4s forwards";
     searchInput.style.textAlign = "center";
+    searchInput.placeholder = "";
     setTimeout(()=> {
         resultArea.addEventListener("click", revertInput);
     }, 500)
@@ -187,6 +188,7 @@ function revertInput(){
     searchBtn.style.animation = "revertBtn 0.4s forwards";
     searchInput.style.animation = "outFocused 0.4s forwards";
     searchInput.style.textAlign = "start";
+    searchInput.placeholder = "아픈 곳을 입력하세요";
     resultArea.removeEventListener("click", revertInput);
 }
 

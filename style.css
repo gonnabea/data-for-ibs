@@ -19,7 +19,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #0099CC;
+    background-color: #8D56FD;
     color: white;
     box-shadow: 0 0 20px black;
 }
@@ -36,12 +36,12 @@ body{
     margin: 0;
     border-radius: 20px;
     outline: none;
-    padding-left: 30px;
+    padding-left: 10px;
     font-size: 20px;
 }
 
 .search-input::placeholder{
-    padding-left: 30px;
+    padding-left: 10px;
 }
 
 .search-input:focus{
@@ -75,15 +75,26 @@ body{
 .description{
     display: flex;
     flex-direction: column;
+    width: 90%;
+    text-align: center;
+}
+
+.case1{
+    width: 90vw;
 }
 
 .case1-Screen{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px 20px;
 }
 
 .description{
-    
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h3{
     text-align: center;
 }
 
@@ -104,12 +115,22 @@ body{
     .case1-Screen{
         grid-template-columns: 1fr;
     }
+    .search-area{
+        height: 50vh;
+    }
 }
 
 .case-container{
     border: solid 2px black;
-    background-color: #76A8D7;
+    background-color: #8D56FD;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px black;
+    height: 50vh;
+    overflow: auto;
 }
 
 @keyframes focusSearch{
