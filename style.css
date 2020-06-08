@@ -7,7 +7,6 @@ body{
     background-color: beige;
     width: 100vw;
     height: 100vh;
-    background-image: url("./images/JangCoach.png");
     background-position-x: 50%;
     background-size: contain;
     background-repeat: no-repeat;
@@ -18,10 +17,12 @@ body{
     width: 100%;
     height: 30vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #0099CC;
     color: white;
-    background-color: rgba(0,0,0,0.2)
+    box-shadow: 0 0 20px black;
 }
 
 .search-form{
@@ -33,14 +34,20 @@ body{
 .search-input{
     width: 300px;
     height: 46px;
-    padding: 0;
     margin: 0;
     border-radius: 20px;
     outline: none;
+    padding-left: 30px;
+    font-size: 20px;
 }
 
 .search-input::placeholder{
     padding-left: 30px;
+}
+
+.search-input:focus{
+    font-weight: 700;
+    color: darkcyan;
 }
 
 .search-btn{
@@ -50,10 +57,12 @@ body{
     margin: 0;
     position: absolute;
     border:none;
-    margin-left: 110px;
+    margin-left: 130px;
     background-color: black;
     color: white;
-    border-radius: 20px;
+    border-radius: 0 20px 20px 0;
+    outline: none;
+    cursor: pointer;
 }
 
 @keyframes focusSearch{
@@ -68,10 +77,10 @@ body{
 
 @keyframes moveBtn{
     0%{
-        margin-left: 110px;
+        margin-left: 130px;
     }
     100%{
-        margin-left: 40vw;
+        margin-left: 39vw;
     }
 }
 
@@ -86,9 +95,9 @@ body{
 
 @keyframes revertBtn{
     0%{
-        margin-left: 40vw;
+        margin-left: 39vw;
     }
     100%{
-        margin-left: 110px;
+        margin-left: 130px;
     }
 }

@@ -9,8 +9,9 @@
 <body>
     <section class="background" id="background">
         <header class="search-area" id="searchArea">
+            <h1 class="title">몸상태 찾기🍳</h1>
             <form action="" class="search-form" id="searchForm">
-                <input type="text" class="search-input" id="searchInput" placeholder="증상을 입력하세요">
+                <input type="text" class="search-input" id="searchInput" required=true autocomplete="off" placeholder="증상을 입력하세요">
                 <input type="submit" class="search-btn" id="searchBtn" value="검색">
             </form>
         </header>
@@ -18,6 +19,7 @@
             결과화면
         </article>
     </section>
+    <script data-main="scripts/main" src="scripts/require.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
