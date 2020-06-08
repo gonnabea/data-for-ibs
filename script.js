@@ -112,9 +112,7 @@ const etc = {
 	"머리와 가슴에서 피가 떨어진다",
 	"등짝 혈류변화 피빠진다"
 	],
-	heightAsstmm: [
-		"왼쪽 창자에 가스가 부족하다"
-	],
+	heightAsstmm: "왼쪽 창자에 가스가 부족하다",
 	rightSmallIntesExpand: [
 	"약한 설사 느낌",
 	"허리디스크", 
@@ -180,7 +178,6 @@ function searchClick(){
     searchBtn.style.animation = "moveBtn 0.4s forwards";
     searchInput.style.animation = "focusSearch 0.4s forwards";
     searchInput.style.textAlign = "center";
-    searchInput.placeholder = "증상 혹은 의심되는 상태를 입력하세요"
     setTimeout(()=> {
         resultArea.addEventListener("click", revertInput);
     }, 500)
@@ -190,7 +187,6 @@ function revertInput(){
     searchBtn.style.animation = "revertBtn 0.4s forwards";
     searchInput.style.animation = "outFocused 0.4s forwards";
     searchInput.style.textAlign = "start";
-    searchInput.placeholder = "증상을 입력하세요"
     resultArea.removeEventListener("click", revertInput);
 }
 
@@ -239,7 +235,7 @@ function handleSearch(e){
     resultArea.style.display = "flex";
 
     const rightExpandArea = document.createElement("div");
-    rightExpandArea.className = "right-expand-area";
+    rightExpandArea.className = "case-container";
     case1Screen.appendChild(rightExpandArea)
     const rightExpandH3 = document.createElement("h3");
     rightExpandH3.innerHTML = "오른쪽 폐가 커지고 있는 경우";
@@ -252,7 +248,7 @@ function handleSearch(e){
     })
 
     const rightShrinkArea = document.createElement("div");
-    rightShrinkArea.className = "right-shirink-area";
+    rightShrinkArea.className = "case-container";
     case1Screen.appendChild(rightShrinkArea)
     const rightShrinkH3 = document.createElement("h3");
     rightShrinkH3.innerHTML = "오른쪽 폐가 작아지고 있는 경우";
@@ -265,7 +261,7 @@ function handleSearch(e){
     })
 
     const leftExpandArea = document.createElement("div");
-    leftExpandArea.className = "right-shirink-area";
+    leftExpandArea.className = "case-container";
     case1Screen.appendChild(leftExpandArea)
     const leftExpandH3 = document.createElement("h3");
     leftExpandH3.innerHTML = "왼쪽 폐가 커지고 있는 경우";
@@ -278,7 +274,7 @@ function handleSearch(e){
     })
 
     const leftShrinkArea = document.createElement("div");
-    leftShrinkArea.className = "right-shirink-area";
+    leftShrinkArea.className = "case-container";
     case1Screen.appendChild(leftShrinkArea)
     const leftShrinkH3 = document.createElement("h3");
     leftShrinkH3.innerHTML = "왼쪽 폐가 작아지고 있는 경우";
