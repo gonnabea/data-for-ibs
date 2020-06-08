@@ -171,7 +171,8 @@ searchBtn = document.getElementById("searchBtn"),
 searchArea = document.getElementById("searchArea"),
 background = document.getElementById("background"),
 resultArea = document.getElementById("resultArea"),
-searchForm = document.getElementById("searchForm")
+searchForm = document.getElementById("searchForm"),
+case1Screen = document.getElementById("case1Screen")
 
 
 
@@ -196,6 +197,7 @@ function revertInput(){
 function handleSearch(e){
     e.preventDefault();
     revertInput();
+    case1Screen.innerHTML = null;
     let keyword = searchInput.value;
     let filtered = [];
     let title = []
@@ -234,8 +236,62 @@ function handleSearch(e){
         console.log(rightShrink)
         console.log(leftExpand)
         console.log(leftShrink)
+    resultArea.style.display = "flex";
 
+    const rightExpandArea = document.createElement("div");
+    rightExpandArea.className = "right-expand-area";
+    case1Screen.appendChild(rightExpandArea)
+    const rightExpandH3 = document.createElement("h3");
+    rightExpandH3.innerHTML = "오른쪽 폐가 커지고 있는 경우";
+    rightExpandArea.appendChild(rightExpandH3)
+    rightExpand.map( data => {
+        const span = document.createElement("span");
+        span.className = "description";
+        span.innerHTML = data;
+        rightExpandArea.appendChild(span);    
+    })
+
+    const rightShrinkArea = document.createElement("div");
+    rightShrinkArea.className = "right-shirink-area";
+    case1Screen.appendChild(rightShrinkArea)
+    const rightShrinkH3 = document.createElement("h3");
+    rightShrinkH3.innerHTML = "오른쪽 폐가 작아지고 있는 경우";
+    rightShrinkArea.appendChild(rightShrinkH3)
+    rightShrink.map( data => {
+        const span = document.createElement("span");
+        span.className = "description";
+        span.innerHTML = data;
+        rightShrinkArea.appendChild(span);    
+    })
+
+    const leftExpandArea = document.createElement("div");
+    leftExpandArea.className = "right-shirink-area";
+    case1Screen.appendChild(leftExpandArea)
+    const leftExpandH3 = document.createElement("h3");
+    leftExpandH3.innerHTML = "왼쪽 폐가 커지고 있는 경우";
+    leftExpandArea.appendChild(leftExpandH3)
+    leftExpand.map( data => {
+        const span = document.createElement("span");
+        span.className = "description";
+        span.innerHTML = data;
+        leftExpandArea.appendChild(span);    
+    })
+
+    const leftShrinkArea = document.createElement("div");
+    leftShrinkArea.className = "right-shirink-area";
+    case1Screen.appendChild(leftShrinkArea)
+    const leftShrinkH3 = document.createElement("h3");
+    leftShrinkH3.innerHTML = "왼쪽 폐가 작아지고 있는 경우";
+    leftShrinkArea.appendChild(leftShrinkH3)
+    leftShrink.map( data => {
+        const span = document.createElement("span");
+        span.className = "description";
+        span.innerHTML = data;
+        leftShrinkArea.appendChild(span);    
+    })
 }
+
+
 function init(){
     searchInput.addEventListener("click", searchClick);
     searchForm.addEventListener("submit", handleSearch)
