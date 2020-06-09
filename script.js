@@ -233,7 +233,8 @@ function handleSearch(e){
         }
     }
     resultArea.style.display = "flex";
-
+    
+    if(rightExpand.length > 0){
     const rightExpandArea = document.createElement("div");
     rightExpandArea.className = "case-container";
     case1Screen.appendChild(rightExpandArea)
@@ -246,7 +247,8 @@ function handleSearch(e){
         span.innerHTML = data;
         rightExpandArea.appendChild(span);    
     })
-
+}
+if(rightShrink.length > 0){
     const rightShrinkArea = document.createElement("div");
     rightShrinkArea.className = "case-container";
     case1Screen.appendChild(rightShrinkArea)
@@ -259,7 +261,8 @@ function handleSearch(e){
         span.innerHTML = data;
         rightShrinkArea.appendChild(span);    
     })
-
+}
+if(leftExpand.length > 0){
     const leftExpandArea = document.createElement("div");
     leftExpandArea.className = "case-container";
     case1Screen.appendChild(leftExpandArea)
@@ -272,7 +275,8 @@ function handleSearch(e){
         span.innerHTML = data;
         leftExpandArea.appendChild(span);    
     })
-
+}
+if(leftShrink.length > 0){
     const leftShrinkArea = document.createElement("div");
     leftShrinkArea.className = "case-container";
     case1Screen.appendChild(leftShrinkArea)
@@ -285,7 +289,7 @@ function handleSearch(e){
         span.innerHTML = data;
         leftShrinkArea.appendChild(span);    
     })
-
+}
     function handleEtc(){
         const etcData = Object.entries(etc);
         etcData.map( data => {
@@ -306,6 +310,10 @@ function handleSearch(e){
                     container.appendChild(span)
                 }
             })
+            const check = container.getElementsByClassName("description");
+            if(check.length === 0){
+                container.style.display = "none";
+            }
         })
     }
 
