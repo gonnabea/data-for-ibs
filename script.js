@@ -240,6 +240,7 @@ function handleSearch(e){
     case1Screen.appendChild(rightExpandArea)
     const rightExpandH3 = document.createElement("h3");
     rightExpandH3.innerHTML = "오른쪽 폐가 커지고 있는 경우";
+    rightExpandH3.className = "category_title";
     rightExpandArea.appendChild(rightExpandH3)
     rightExpand.map( data => {
         const span = document.createElement("span");
@@ -254,6 +255,7 @@ if(rightShrink.length > 0){
     case1Screen.appendChild(rightShrinkArea)
     const rightShrinkH3 = document.createElement("h3");
     rightShrinkH3.innerHTML = "오른쪽 폐가 작아지고 있는 경우";
+    rightShrinkH3.className = "category_title";
     rightShrinkArea.appendChild(rightShrinkH3)
     rightShrink.map( data => {
         const span = document.createElement("span");
@@ -268,6 +270,7 @@ if(leftExpand.length > 0){
     case1Screen.appendChild(leftExpandArea)
     const leftExpandH3 = document.createElement("h3");
     leftExpandH3.innerHTML = "왼쪽 폐가 커지고 있는 경우";
+    leftExpandH3.className = "category_title";
     leftExpandArea.appendChild(leftExpandH3)
     leftExpand.map( data => {
         const span = document.createElement("span");
@@ -282,6 +285,7 @@ if(leftShrink.length > 0){
     case1Screen.appendChild(leftShrinkArea)
     const leftShrinkH3 = document.createElement("h3");
     leftShrinkH3.innerHTML = "왼쪽 폐가 작아지고 있는 경우";
+    leftShrinkH3.className = "category_title";
     leftShrinkArea.appendChild(leftShrinkH3)
     leftShrink.map( data => {
         const span = document.createElement("span");
@@ -302,6 +306,7 @@ if(leftShrink.length > 0){
             const h3 = document.createElement("h3");
             h3.innerHTML = nameFilter(categoryName);
             container.appendChild(h3);
+            h3.className = "category_title"
             contents.map( data => {
                 if(data.includes(keyword)){
                     const span = document.createElement("span");
