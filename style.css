@@ -134,6 +134,26 @@ h3{
     overflow: auto;
 }
 
+.case1-title{
+    color: white;
+    box-shadow: 0 0 5px yellowgreen;
+    background-color: yellowgreen;
+    width: 30%;
+    border-radius: 0 30px 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.case2-title{
+    color: white;
+    box-shadow: 0 0 5px pink;
+    background-color: pink;
+    width: 20%;
+    border-radius: 0 30px 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
 @keyframes focusSearch{
     0%{
         width: 300px;
